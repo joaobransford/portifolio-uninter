@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfólio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Projetos Pessoais</h1>
+  </header>
+
+  <!-- Menu de navegação para todas as páginas -->
+  <nav>
+    <a href="index.html">Sobre Mim</a>
+    <a href="formacao.html">Formação Acadêmica</a>
+    <a href="portfolio.html">Portfólio</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+
+  <main>
+    <h2>Meus Projetos</h2>
+
+    <!-- Link externo para o repositório no GitHub -->
+    <!-- Lista não ordenada com itens. -->
+    <ul>
+      <li>
+        <a href="https://github.com/joaobransford/backup-nginx-project" target="_blank">
+          Backup Automático de Logs do Nginx com Notificação via AWS SNS
+        </a>
+      </li>
+    </ul>
+
+    <p>O link acima redireciona para o repositório do GitHub onde explico e compartilho o código do projeto.</p>
+
+    <!-- Introdução do projeto -->
+    <!-- Lista não ordenada com itens. -->
+    <h3>Introdução</h3>
+    <p>Este projeto automatiza o backup dos arquivos de log do Nginx (<code>access.log</code> e <code>error.log</code>) utilizando serviços da AWS. Um script shell é responsável por enviar os logs periodicamente para um bucket no Amazon S3. Assim que os arquivos chegam ao S3, um evento aciona uma notificação via Amazon SNS, enviando um alerta por e-mail sobre a conclusão do backup.</p>
+
+    <p>Essa solução garante a integridade e a segurança dos logs, facilitando a auditoria e o monitoramento do ambiente.</p>
+
+    <!-- Lista de serviços utilizados -->
+    <!-- Lista não ordenada com itens. -->
+    <h3>Serviços AWS Utilizados</h3>
+    <ul>
+      <li><strong>Amazon EC2:</strong> Executa o Nginx e o script de backup.</li>
+      <li><strong>Amazon S3:</strong> Armazena os arquivos de log e gera eventos.</li>
+      <li><strong>Amazon SNS:</strong> Envia e-mails de notificação quando os arquivos são enviados.</li>
+    </ul>
+
+    <!-- Descrição do funcionamento -->
+    <!-- Lista não ordenada com itens. -->
+    <h3>Como Funciona</h3>
+    <ol>
+      <li>O servidor EC2 gera os arquivos de log do Nginx access.log e error.log.</li>
+      <li>Um script copia e envia esses logs para o Amazon S3.</li>
+      <li>O S3 detecta os novos arquivos e dispara um evento.</li>
+      <li>Esse evento aciona um tópico do SNS.</li>
+      <li>O SNS envia um e-mail notificando que o backup foi concluído.</li>
+    </ol>
+  </main>
+</body>
+</html>
